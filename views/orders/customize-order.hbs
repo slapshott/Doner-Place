@@ -1,0 +1,24 @@
+<h1>Customize your order</h1>
+<div class="catalog">
+    <div class="column">
+        <img src="/img/{{this.category}}-{{this.size}}.png">
+    </div>
+    <div class="column">
+        <h2>{{this.category}} doner, {{this.size}}cm</h2>
+        <h3>Toppings</h3>
+        <div class="toppings">
+            <form method="POST">
+                <input name="product" type="hidden" value="{{this.category}}">
+                <input name="size" type="hidden" value="{{this.size}}">
+                <input name="topping01" type="checkbox" value="Pickles" checked=""><label for="topping01">Pickles</label><br>
+                <input name="topping02" type="checkbox" value="Tomato" checked=""><label for="topping02">Tomato</label><br>
+                <input name="topping03" type="checkbox" value="Onion" checked=""><label for="topping03">Onion</label><br>
+                <input name="topping04" type="checkbox" value="Lettuce" checked=""><label for="topping04">Lettuce</label><br>
+                <input name="topping05" type="checkbox" value="Hot Sauce"><label for="topping05">Hot Sauce</label><br>
+                <input name="topping06" type="checkbox" value="Extra Sauce"><label for="topping06">Extra Sauce</label><br>
+                <button type="submit" class="button">Checkout</button>
+            </form>
+        </div>
+        
+    </div>
+</div>

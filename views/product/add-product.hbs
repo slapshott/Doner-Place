@@ -1,0 +1,22 @@
+<form action="/createProduct" method="post">
+	<h2>Create Product</h2>
+	
+	<label for="category"> Category </label>
+	<select name="category" id="category">
+		<option value="beef"> Beef </option>
+		<option value="chicken"> Chicken </option>
+		<option value="lamb"> Lamb </option>
+	</select><br>
+	
+	<label for="imageUrl"> Image Url: </label>
+	<input id="imageUrl" name="imageUrl" type="text"><br>
+	
+	<label for="size"> Size: </label>
+	<input id="size" name="size" type="number" min="17" max="24"><br>
+	
+	<label for="toppings"><strong> Toppings: </strong></label><br>
+	<textarea id="toppings" name="toppings"></textarea><br>
+	
+	<input type="submit" value="Create" class="button" style="border:0"/>
+	
+</form>
