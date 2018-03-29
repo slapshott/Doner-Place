@@ -15,8 +15,8 @@ module.exports = app => {
     app.get('/logout', controllers.user.logout);
 
     // Add Product
-    app.get('/createProduct', auth.isAuthed, controllers.product.viewAddProduct);
-    app.post('/createProduct', auth.isAuthed, controllers.product.addProduct);
+    app.get('/createProduct', auth.hasRole('Admin'), controllers.product.viewAddProduct);
+    app.post('/createProduct', auth.hasRole('Admin'), controllers.product.addProduct);
 
     // Orders 
     app.get('/order/:id', auth.isAuthed, controllers.order.viewOrder);
@@ -26,7 +26,8 @@ module.exports = app => {
     app.get('/order-details/:id', controllers.order.orderDetails);
     
     // Order Status
-    app.get('/order-status', controllers.order.orderStatus)
+    app.get('/order-status', controllers.order.orderStatusGet)
+    app.post('/order-status', controllers.order.orderStatusPost)
 
     // Error
     app.all('*', (req, res) => {

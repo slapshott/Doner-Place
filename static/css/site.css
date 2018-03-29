@@ -195,3 +195,7 @@ main {
 img {
     width: 100%
 }
+
+.no-orders{
+    font-weight: bold
+}

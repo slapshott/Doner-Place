@@ -38,14 +38,13 @@ module.exports = {
             size: size
         }).then((p) => {
             id = p._id
-            res.redirect(`/order-details/:${id}`)
+            res.redirect(`/order-details/${id}`)
         }).catch(err => console.log(err))
     
     },
 
     orderDetails: (req, res) => {
         let id = (req.params.id)
-        id = id.substr(1);
  
             Order.findById(id)
                     .then(order => {
@@ -55,16 +54,40 @@ module.exports = {
             
     },
 
-    orderStatus: (req, res) => {
+    orderStatusGet: (req, res) => {
+        
         let user = res.locals.currentUser.username
-        Order.find({creator: user})
+        if(user === 'Admin'){
+            // console.log('Admin view')
+            Order.find()
+                    .then((orders) => {
+                        // console.log(orders)
+                        res.render('admin/order-status', {orders})
+                    })
+        }else{
+            Order.find({creator: user})
                 .then(orders => {
                     console.log(orders)
-                    res.render('orders/order-status', orders)
+                    res.render('orders/order-status', {orders})
                 })
                 .catch(err => console.log(err))
+        }    
 
+    },
+
+    orderStatusPost: (req, res) => {
         
+        let ordersStatus = req.body
+        ordersStatus = ordersStatus.orders
+        console.log(ordersStatus)
+        Order.find()
+                .then((orders) => {
+                    console.log(orders)
+                    // for (const order of orders) {
+                    //     order.
+                    // }
+                })
+                .catch(err => console.log(err))
     }
 
 }

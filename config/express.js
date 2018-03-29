@@ -1,5 +1,10 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
+
+const Handlebars = require("handlebars");
+const MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
+
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
