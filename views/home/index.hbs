@@ -12,7 +12,7 @@
     <h2>{{this.category}} Doner</h2>
     <div class="product-card">
         <img src="{{this.imageUrl}}">
-        <a href="#" class="control"><img class="control-img" src="img/edit.png"></a>
+        <a href="updateProduct/{{this._id}}" class="control"><img class="control-img" src="img/edit.png"></a>
         <a href="deleteProduct/{{this._id}}" class="control"><img class="control-img" src="img/delete.png"></a>
     </div>
     {{/each}}

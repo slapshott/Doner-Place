@@ -1,0 +1,23 @@
+<form method="post">
+	<h2>Edit Product</h2>
+	
+	<label for="category"> Category </label>
+	<select name="category" id="category">
+        <option value="{{this.category}}" selected="selected"> {{this.category}} </option>
+		<option value="Beef"> Beef </option>
+		<option value="Chicken"> Chicken </option>
+		<option value="Lamb"> Lamb </option>
+	</select><br>
+	
+	<label for="imageUrl"> Image Url: </label>
+	<input id="imageUrl" name="imageUrl" type="text" value="{{this.imageUrl}}"><br>
+	
+	<label for="size"> Size: </label>
+	<input id="size" name="size" type="number" min="17" max="24" value="{{this.size}}"><br>
+	
+	<label for="toppings"><strong> Toppings: </strong></label><br>
+	<textarea id="toppings" name="toppings">{{this.toppings}}</textarea><br>
+	
+	<input type="submit" value="Save" class="button" style="border:0"/>
+	
+</form>

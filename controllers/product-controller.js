@@ -35,5 +35,30 @@ module.exports = {
                     })
                     .catch(err => console.log(err))
             
+    },
+
+    updateProduct: (req, res) => {
+        let id = req.params.id
+
+        Product.findById(id)
+                .then(p => {
+                    // console.log(p)
+                    res.render('product/edit-product', p)
+                })
+                .catch(err => console.log(err))
+    },
+
+    editProduct: (req, res) => {
+        let id = req.params.id
+        console.log(id)
+        console.log(req.body)
+
+        let editedProduct = req.body
+        Product.findByIdAndUpdate(id, editedProduct)
+                .then(p => {
+                    console.log(p)
+                    res.redirect('/')
+                })
+                .catch(err => console.log(err))
     }
 }

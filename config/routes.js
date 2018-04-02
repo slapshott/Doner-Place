@@ -21,6 +21,10 @@ module.exports = app => {
     // Delete product
     app.delete('/deleteProduct/:id', controllers.product.deleteProduct);
 
+    // Update Product
+    app.get('/updateProduct/:id', controllers.product.updateProduct)
+    app.post('/updateProduct/:id', controllers.product.editProduct)
+
     // Orders 
     app.get('/order/:id', auth.isAuthed, controllers.order.viewOrder);
     app.post('/order/:id', auth.isAuthed, controllers.order.viewOrderPost);
