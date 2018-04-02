@@ -20,5 +20,20 @@ module.exports = {
             .catch(err => console.log(err))
         })
         .catch(err => console.log(err))
+    },
+
+    deleteProduct: (req, res) => {
+            let productId = req.params.id
+
+            Product.findById(productId)
+                    .then(p => {
+                        Product.deleteOne(p)
+                                .then((p) => {
+                                    res.redirect('/')
+                                })
+                                .catch(err => console.log(err))
+                    })
+                    .catch(err => console.log(err))
+            
     }
 }

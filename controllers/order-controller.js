@@ -80,12 +80,14 @@ module.exports = {
         let ordersStatus = req.body
         ordersStatus = ordersStatus.orders
         console.log(ordersStatus)
-        Order.find()
+        Order.collection
+                .updateMany(
+                    {status: 'Pending'},
+                    {$set: {status: 'In Progress'}}
+                )
                 .then((orders) => {
                     console.log(orders)
-                    // for (const order of orders) {
-                    //     order.
-                    // }
+                    res.render('orders/order-status')
                 })
                 .catch(err => console.log(err))
     }
