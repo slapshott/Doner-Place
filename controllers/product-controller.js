@@ -29,7 +29,6 @@ module.exports = {
                     .then(p => {
                         Product.deleteOne(p)
                                 .then((p) => {
-                                    console.log(p)
                                     res.redirect('/')
                                 })
                                 .catch(err => console.log(err))
@@ -43,7 +42,6 @@ module.exports = {
 
         Product.findById(id)
                 .then(p => {
-                    // console.log(p)
                     res.render('product/edit-product', p)
                 })
                 .catch(err => console.log(err))
@@ -57,7 +55,6 @@ module.exports = {
         let editedProduct = req.body
         Product.findByIdAndUpdate(id, editedProduct)
                 .then(p => {
-                    console.log(p)
                     res.redirect('/')
                 })
                 .catch(err => console.log(err))

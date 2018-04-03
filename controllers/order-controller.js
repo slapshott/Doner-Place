@@ -13,9 +13,6 @@ module.exports = {
     },
 
     viewOrderPost: (req, res) => {
-
-        // console.log(req.params)
-        // console.log(req.body)
        
         let id
         let currentProduct = req.body.product;
@@ -61,13 +58,11 @@ module.exports = {
             // console.log('Admin view')
             Order.find()
                     .then((orders) => {
-                        // console.log(orders)
                         res.render('admin/order-status', {orders})
                     })
         }else{
             Order.find({creator: user})
                 .then(orders => {
-                    console.log(orders)
                     res.render('orders/order-status', {orders})
                 })
                 .catch(err => console.log(err))
@@ -78,18 +73,9 @@ module.exports = {
     orderStatusPost: (req, res) => {
         
         let ordersStatus = req.body
-        ordersStatus = ordersStatus.orders
+        rdersStatus = ordersStatus.orders
         console.log(ordersStatus)
-        Order.collection
-                .updateMany(
-                    {status: 'Pending'},
-                    {$set: {status: 'In Progress'}}
-                )
-                .then((orders) => {
-                    console.log(orders)
-                    res.render('orders/order-status')
-                })
-                .catch(err => console.log(err))
+        // Order.findOneAndUpdate
     }
 
 }
