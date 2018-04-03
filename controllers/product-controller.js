@@ -29,6 +29,7 @@ module.exports = {
                     .then(p => {
                         Product.deleteOne(p)
                                 .then((p) => {
+                                    console.log(p)
                                     res.redirect('/')
                                 })
                                 .catch(err => console.log(err))

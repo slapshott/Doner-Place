@@ -19,7 +19,7 @@ module.exports = app => {
     app.post('/createProduct', auth.hasRole('Admin'), controllers.product.addProduct);
     
     // Delete product
-    app.delete('/deleteProduct/:id', controllers.product.deleteProduct);
+    app.get('/deleteProduct/:id', controllers.product.deleteProduct);
 
     // Update Product
     app.get('/updateProduct/:id', controllers.product.updateProduct)

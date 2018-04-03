@@ -8,7 +8,8 @@
             <span class="order-name">{{this.product}} doner, {{this.size}} cm</span>
             <span class="order-status" {{this._id}}>
                 <select name="orders" selected="pending">
-                    <option selected="selected" value="pending">Pending</option>
+                    <option value="{{this.product}}" selected="selected">{{this.status}}</option>
+                    <option value="pending">Pending</option>
                     <option value="inProgress">In Progress</option>
                     <option value="inTransit">In Transit</option>
                     <option value="delivered">Delivered</option>
